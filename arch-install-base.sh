@@ -37,7 +37,7 @@ fi
 
 sgdisk --zap-all $DEVICE
 # boot partition
-sgdisk -n=1:0:500M $DEVICE
+sgdisk -n=1:0:500M -t 1:ef00 $DEVICE
 # data partition
 sgdisk -n=2:0:0 $DEVICE
 
