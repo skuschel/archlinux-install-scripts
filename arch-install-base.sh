@@ -18,6 +18,9 @@ trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
 # check a few things
 
+dialog --yesno "All data on Device $DEVICE will be destroyed! Proceed?" 0 0 || exit
+
+
 if [[ $(mount | grep -c $DEVICE) -ge 1 ]]
   then echo "Device $DEVICE is in use. Exiting."
   exit
